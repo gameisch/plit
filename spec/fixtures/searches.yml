@@ -1,0 +1,21 @@
+one:
+  keywords: MyString
+  user_id: 1
+  user_name: MyString
+  user_nick: MyString
+  user_proff: MyString
+  user_adress: MyString
+  user_detail: MyString
+  post_title: MyString
+  post_content: MyText
+
+two:
+  keywords: MyString
+  user_id: 1
+  user_name: MyString
+  user_nick: MyString
+  user_proff: MyString
+  user_adress: MyString
+  user_detail: MyString
+  post_title: MyString
+  post_content: MyText

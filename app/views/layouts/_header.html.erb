@@ -1,0 +1,41 @@
+<header>
+
+  <nav id="line">
+    <ul id="drop">
+      <% if signed_in? %>
+      <% else %>
+      <li title="Главная страница"><%= link_to "Главная", root_path %></li>
+      <% end %>
+      <% if signed_in? %>
+      <li><% form_tag users_path, :method => 'get' do %>
+      <p style="padding:0px 5px 5px 5px;">
+       <%= text_field_tag :search, params[:search], :class => 'find', :placeholder => 'Учитывайте регистр букв' %>
+       <%= submit_tag "", :name => true, :class => 'buttonf' %></p></li><li><p>
+       <%= link_to "Расширенный поиск", searches_path %>
+      </p><% end %></li>
+      <li style="border-right:2px dotted #0099cc;"></li>
+      
+      <li title="Список всех пользователей"><%= link_to "Все пользователи", users_path %></li>
+      <li title="Посмотреть мои записи"><%= link_to  @current_user.nick, current_user %>
+        <ul style="text-align:right;">
+         <li title="Посмотреть мои записи"><%= link_to "Мой профиль", current_user %></li>
+         <li title="Все записи на моей стене"><%= link_to "Моя стена", root_path %></li>
+         <li title="Ссылка временно не работате!"><%= link_to "Мои сообщения", "#" %></li>
+         <li title="Приложение находится на бета-тестировании."><%= link_to "Новый блог", posts_path %>?!</li>
+         <li title="Редактировать мой профиль"><%= link_to "Настройки профиля", edit_user_path(current_user) %></li>
+      
+        </ul>
+      </li>
+      
+      <% end %>
+      <% if signed_in? %>
+      <li title=""><%= link_to "Выйти", signout_path, :method => :delete %></li>
+      <li class="logo"></li>
+      <% else %>
+      <li title=""><%= link_to "Войти", signin_path %></li>
+      <li class="logo"></li>
+      
+      <% end %>
+    </ul>
+  </nav>
+</header>

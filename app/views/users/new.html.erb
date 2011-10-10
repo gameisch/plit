@@ -1,0 +1,99 @@
+<h1>Регистрация</h1>
+<table class="profile" summary="Profile information">
+ 
+    <td class="main">
+    <div id="ramka">
+      <%= simple_form_for @user, :html => { :multipart => true } do |f| %>
+  
+   <div class="field" title="Впишите вашу метку 'Инжинер' или 'Пользователь'">
+   <%= f.input :point %>
+
+  </div><hr />
+ 
+   <div class="field">
+      <%= f.label :photo, '* Фото' %>
+      <%= f.file_field :photo %><br>
+      <p id="mini" style="font-size:0.9em; text-align:center;">*<i>Загрузите фотографию или логотип компании... </i></p>
+    </div><hr />
+      
+   <div class="field">
+    <%= f.input :nick %>
+   </div><hr />
+ 
+  <div class="field">
+    <%= f.input :name %>
+  </div><hr />
+  <div class="field">
+    <%= f.input :email %>
+  </div><hr />
+  <div class="field">
+    <%= f.input :password %>
+  </div><hr />
+  <div class="field">
+    <%= f.input :password_confirmation %>
+  </div><hr />
+  <div class="field" title="Введите полный адрес">
+    <%= f.label :adress %>
+    <%= f.text_area :adress, :placeholder => "" %>
+    <p id="mini" style="font-size:0.8em; text-align:center;">*<i>Укажите адреса и телефоны вашей организации (не забудте про район) </i></p>
+  </div><hr />
+  <div class="field">
+    <%= f.input :proff %>
+  </div><hr />
+  <div class="field" title="Опишите чем конкретно занимается ваша фирма">
+    <%= f.label :detail %>
+    <%= f.text_area :detail, :placeholder => "" %>
+    <p id="mini" style="font-size:0.8em; text-align:center;">*<i>Детальное описание предоставляемых услуг </i></p>
+  </div><hr />
+  <div class="actions">
+    <%= f.submit "Зарегестрироваться!" %>
+    <p id="mini" style="font-size:0.8em; text-align:center;">*<i>Нажав эту кнопку Вы автоматически соглашаетесь со всеми условиями! </i></p>
+  </div>
+  </div>
+  </td>
+<% end %>
+     
+    
+    <td class="sidebar round">
+    
+      <div id="ramka1">
+        <p>*Прочесть условия <%= link_to "пользовательского соглашения", reglament_path, :parent => 'blank' %>.</p>
+      </div><br />
+      <div id="ramka1">
+        <p>*Примеры правильно заполненых анкет:<br />
+        Анкета <b>"Инжинера"</b><a href="../public/downloads/img1.png"> 1</a><a source="../public/downloads/img2.png"> 2</a><a source="../public/downloads/img3.png"> 3</a><br />
+        <b>"Пользователь"</b> может заполнить первые 7 полей.
+        </p>
+      </div><br />
+      <h4>Подсказки:</h4>
+      <div id="ramka3">
+       <h6>* Фото:</h6>
+        <p>Загружаемая картинка не может быть больше 5 мб и должна иметь расширение .JPG или .PNG.</p>
+      </div><br />
+      <div id="ramka">
+      <h6>* Никнейм:</h6>
+        <p>С помощью "Никнейма" вам смогут посылать личные сообщения.</p>
+      </div><br />
+      <div id="ramka4">
+      <h6>* Пароль:</h6>
+        <p>Пароль должен состоять не менее чем из шести символов и обязательно подтвержден в следующем поле!</p>
+      </div><br />
+      <div id="ramka3">
+      <h6>* Адрес:</h6>
+        <p>Указывайте точный адрес, чтобы Вас смогли найти нужные люди.</p>
+      </div><br />
+      <div id="ramka2">
+      <h6>* Деятельность:</h6>
+        <p>Здесь можете указать расшифровку вида деятельности по ОКВЭД.</p>
+      </div><br />
+      
+      <div id="ramka">
+      <h6>* Детали:</h6>
+        <p>Распишите спектр услуг который Вы предоставляете.</p>
+      </div><br />
+     
+    </td>
+ </tr>
+ </table>
+
+

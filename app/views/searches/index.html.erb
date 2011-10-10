@@ -1,0 +1,39 @@
+<h1>Популярные запросы</h1>
+<%= link_to 'Создать новый запрос', new_search_path %><br /><hr />
+<table>
+  <tr>Запросы по:
+   <!-- <th>Keywords</th>
+    <th>User</th>-->
+    <th>Именам</th>
+    <th>Никнеймам</th>
+    <th>Деятельности</th>
+    <th>Адресам</th>
+    <th>Другое</th>
+   <!-- <th>Post title</th>
+    <th>Post content</th>-->
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @searches.each do |search| %>
+  <tr>
+   <!-- <td><%= search.keywords %></td>
+    <td><%= search.user_id %></td>-->
+    <td><%= search.user_name %></td>
+    <td><%= search.user_nick %></td>
+    <td><%= search.user_proff %></td>
+    <td><%= search.user_adress %></td>
+    <td><%= search.user_detail %></td>
+   <!-- <td><%= search.post_title %></td>
+    <td><%= search.post_content %></td>-->
+    <td><%= link_to 'Просмотр', search %></td>
+    
+   <!-- <td><%= link_to 'Destroy', search, :confirm => 'Are you sure?', :method => :delete %></td>-->
+  </tr>
+<% end %>
+</table>
+<hr />
+<br />
+
+<%= link_to 'Создать новый запрос', new_search_path %>

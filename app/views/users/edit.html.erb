@@ -1,0 +1,90 @@
+<h1>Редактирование профиля</h1>
+<dd class="main"></dd>
+<table class="profile" summary="Profile information">
+ 
+    <td class="main">
+    <div id="ramka">
+    <%= @user.nick %>
+        <p id="gravedit"><%= gravatar_for @user %> </p>
+        <p><a href="http://gravatar.com/emails" target="parent"> Изменить граватар</a>
+        <h8 id="mini" style="font-size:0.9em;"><br /> *при нажатии Вы попадете на сайт gravatar где сможете изменить свое фото</h8><br>
+       <%= simple_form_for @user, :html => { :multipart => true } do |f| %><br>
+    <br />
+    <div class="field">
+      <%= f.label :photo, 'Фото' %>
+      <%= f.file_field :photo %><br>
+      <p id="mini" style="font-size:0.9em; text-align:center;">*<i>Помимо граватара вы можете загрузить личную фотографию или логотип компании.. </i></p>
+    </div>
+ 
+    <div class="field" title="Как давно вы этим занимаетесь? Какую нереальную проблему вы исправили? Чем вы можете привлечь клиентов? Расскажите про свой опыт...">
+    <%= f.label :skill %>
+    <%= f.text_area :skill %>
+    </div>
+    
+    <hr />
+      
+   <div class="field">
+    <%= f.input :nick %>
+  </div>
+ 
+  <div class="field">
+    <%= f.input :name %>
+  </div>
+  <div class="field">
+    <%= f.input :email %>
+  </div>
+  <div class="field" title="Введите полный адрес">
+    <%= f.label :adress %>
+    <%= f.text_area :adress %>
+  </div>
+  <div class="field">
+    <%= f.input :proff %>
+  </div>
+  <div class="field" title="Опишите чем конкретно занимается ваша фирма">
+    <%= f.label :detail %>
+    <%= f.text_area :detail %>
+  </div>
+  
+  <div class="field">
+    <%= f.input :password, :hint => "*Без указания пароля профиль не обновится!" %>
+  </div>
+  <div class="field">
+    <%= f.input :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Обновить" %>
+  </div>
+  </div>
+  
+     </td>
+     
+    
+    <td class="sidebar round">
+      <strong>Имя:</strong><i class="border"> <%= @user.name %></i><hr />
+      <strong>Записи на стене:</strong>  <%= link_to @user.nick,  @user %><br />
+      <strong>Блоги:</strong> <%= link_to @user.posts.count, user_path(@post) %><br /><hr />
+      <strong>Профиль:</strong><dd class="border"><%= @user.proff %></dd><br />
+      <strong>Детали профиля:</strong><dd class="border"> <%= @user.detail %></dd><br />
+      <strong>Контактные данные:</strong><dd class="border"> <%= @user.adress %></dd><br />
+      <%= render 'shared/stats' %>
+      <p>*Не забывайте вводить свой пароль и подтверждение, прежде как нажимать кнопку "обновить"!</p>
+      <div id="ramka">
+        <p>*Опишите Ваш опыт, что бы привлекать к своему профилю больше посетителей.</p>
+      </div><br />
+      <div id="ramka3">
+        <p>*Указывайте точный адрес, чтобы Вас смогли найти нужные люди.</p>
+      </div><br /><hr />
+      <div>
+        <p> | <font size="2" face="arial"><i><%= link_to "Удалить свою страницу", current_user, :method => :delete, :confirm => "Одумайся!!!",
+                                :title => "Вы не сможете ее восстановить" %></i></font> </p>
+      </div><hr />
+    </td>
+ <tr>
+<td calss="main">
+
+   </tr>
+</table>
+<% end %>
+
+
+

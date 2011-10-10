@@ -1,0 +1,48 @@
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">Что нового?</h1>
+        <%= render 'shared/micropost_form' %>
+        <%= render 'shared/feed' %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+        <%= render 'shared/stats' %>
+      </td>
+      </tr>
+     </table>
+  
+<% else %>
+      <table>
+        <tr>
+          <td class="main">    
+		<h1>ЛюблюАйТи.рф</h1> - экспериментальное начало...
+
+		    <p>
+		<% logo = image_tag("logo.png", :alt => "логотип ЛюблюАйТи", :class => "round") %>
+		  <%= link_to logo, root_path %></p>
+          </td>
+          <td id="hoe">
+            <p>Социальная сеть для организаций, сервисов, магазинов и их клиентов!</p>
+            <br />
+               Прочитать <a href="../reglament">пользовательское соглашение</a>
+               <br /><br />
+               Узнать как создавался проект <a href="../develop"> ЛюблюАйТи.рф</a>
+          </td>
+          <td id="home"><p>
+           <p> Люблю АйТи - это проект который призван помогать развиваться предпринимателям и давать ответы их клиентам.
+           </p>
+           <p>Публикуйте посты, узнавайте технологичные новости, общайтесь.
+               Решайте проблемы с капризной техникой в сети.</p>
+           <p>
+               <b>Узнайте подробней о всех возможностях <a href="../about">Люблю АйТи!</a></b>
+           </p>
+          </td>
+       </tr>
+     </table>
+<%= link_to "Зарегестрируйся сейчас!", signup_path, :class => "signup_button round" %>
+<% end %>
+
+
+

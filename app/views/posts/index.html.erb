@@ -1,0 +1,21 @@
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="post">Создайте интересную статью!</h1>
+        <%= render 'shared/post_form' %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+  <h1>Вы не авторизованы на сайте</h1>
+
+  <p>
+    
+  </p>
+  <%= link_to "Войти...", signin_path, :class => "signup_button round", :style => "background:#0acee0;" %><br />
+  <%= link_to "Регистрация...", signup_path, :class => "signup_button round" %>
+<% end %>

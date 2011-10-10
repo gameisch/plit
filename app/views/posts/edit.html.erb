@@ -1,0 +1,42 @@
+<h1>Редактирование блога:</h1>
+ 
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr class="post">
+      <td class="main">
+        
+        <%= form_for @post do |f| %>
+  <% if @post.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@post.errors.count, "ошибка") %> не дает сохранить блог:</h2>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, "Заголовок:" %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :image, "Загрузить картинку:" %><br />
+    <%= f.file_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :content, "Текст:" %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Обновить" %>
+  </div>
+<% end %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+      </td>
+    </tr>
+  </table>
+<% end %>

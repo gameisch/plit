@@ -1,0 +1,15 @@
+<h3>Комментировать:</h3>
+       <%= form_for([@post, @post.comments.build]) do |f| %>
+      <div class="comment">
+      <%= gravatar_for(@current_user, options = { :size => 30 }) %>
+         <%= f.label :user_id, current_user.nick %>
+         <%= f.hidden_field :user_id, :value => @current_user.id %>
+      </div>
+      <div class="field">   
+         <%= f.label :body %>
+         <%= f.text_area :body %>
+      </div>
+      <div class="actions">
+         <%= f.submit %>
+      </div>
+      <% end %>

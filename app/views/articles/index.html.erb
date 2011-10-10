@@ -1,0 +1,13 @@
+<h1></h1>
+  <p><%= link_to "RSS feed", formatted_articles_url(:rss) %></p>
+
+  <% for article in @articles %>
+
+      <div class="article">
+       <h2><%=h article.name %></h2>
+      <div calss="content">
+       <%= simple_format(article.content) %>
+   </div>
+  </div>
+<%= end %>
+

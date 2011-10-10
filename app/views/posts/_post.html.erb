@@ -1,0 +1,14 @@
+<tr>
+  <td class="post">
+    <span class="content"><b><%= post.title %></b></span>
+    <span class="timestamp">
+      Блог добавлен <%= time_ago_in_words(post.created_at) %> назад.
+    </span>
+  </td>
+  <td><%= link_to 'Прочесть', post %></td>
+<% if current_user?(post.user) %>
+ 
+  
+  <td><%= link_to 'Изменить', edit_post_path(post) %></td>
+  <% end %>
+</tr>

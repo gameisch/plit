@@ -1,0 +1,41 @@
+en:
+  
+  simple_form:
+    "password": "Пароль"
+    "name": "Имя"
+    "nick": 'Никнэйм'
+    "point": "Метка"
+    "password_confirmation": "Подтвердите пароль"
+    "adress": "Адрес"
+    "skill": "Опыт"
+    "detail": "Детали"
+    "proff": "Профиль"
+    "yes": "Да"
+    "no": "Нет"
+    required:
+      text: "требуется"
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: ":"
+     #label: 
+       #'password': 'Пароль'
+       #'name': 'Имя'
+       #'nick': 'Никнэйм'
+      # 'point': 'Метка'
+      # 'password_confirmation': 'Подтвердите пароль'
+       #'adress': 'Адрес'
+      # 'skill': 'Опыт'
+      # 'detail': 'Детали'
+       #'proff': 'Профиль работ'
+    #   user:
+    #     new:
+    #       email: 'E-mail para efetuar o sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   username: 'User name to sign in.'
+    #   password: 'No special characters, please.'
+

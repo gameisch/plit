@@ -1,0 +1,23 @@
+<li><table>
+<tr>
+ <td>
+<div style="border:dashed 1px #ccc;text-align:left; width:100px;padding:10px 10px;margin:5px;">  
+  <%= gravatar_for user, :size => 50 %><br />
+  <b style="float:top;"><%= user.point %></b><br />
+  </td>
+  <td>
+  <b><%= link_to user.name, user %></b>
+  <%= user.proff %>
+  <div id="hoe">
+  <i class="border"><%= user.detail %></i>
+  </div>        
+  
+  </div>
+  </td>
+  </tr>
+  </table><hr />
+<% if current_user.admin? %>
+  | <font size="2" face="arial"><i><%= link_to "удалить пользователя #{user.name}", user, :method => :delete, :confirm => "Одумайся!!!",
+                                :title => "Удалить #{user.name}" %></i></font> 
+  <% end %>
+</li>

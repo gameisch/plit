@@ -1,0 +1,71 @@
+<% if signed_in? %>
+<table class="profile">
+  <tr>
+    <td class="main">
+<p>
+  <pre><%= gravatar_for(@post.user, options = { :size => 45 }) %> <%= link_to @post.user.name, @post.user %><i class="border" style="font-size:0.9em;"> (<%= @post.user.point %>)</i>
+  </pre><hr />
+</p>
+<p id="blog_title">
+ <h1> <%= @post.title %> </h1>
+</p>
+ <%= image_tag @post.image.url(:small) %>
+<p id="blog_content">
+  <b></b>
+  <%= @post.content %>
+</p>
+
+<% if current_user?(@post.user) %>
+<%= link_to 'Изменить', edit_post_path(@post) %> <hr />
+<% end %>
+    </td>
+    
+   <!-- <td class="sidebar round">
+      <p>
+    <%= render 'posts_show' if signed_in? %>                                  
+     </p>
+      
+    </td>--><table>
+          
+       <% @post.comments.each do |comment| %>
+         <% unless @post.comments.empty? %>  
+         <div id="commenter">       
+         <p id="commenter_user"><b><%= gravatar_for comment.user, options = { :size => 30 } %> <%= link_to comment.user.nick, comment.user %></b> комментировал:</p>           
+         
+         <%= comment.body %>
+         
+         <i class="border" style="font-size:0.9em;"><br />
+      добавлено <%= time_ago_in_words(comment.created_at) %> назад.
+     </i></div><br />
+        <% end %>
+      <% end %>
+       
+   <p>   
+   <h3>Добавить комментарий:</h3>
+       <%= form_for([@post, @post.comments.build]) do |f| %>
+      <div class="field">
+      <%= gravatar_for(@current_user, options = { :size => 30 }) %>
+         <%= f.label :user_id, current_user.nick %><br />
+         <%= f.hidden_field :user_id, :value => @current_user.id %><br />
+      </div>
+      <div class="field">    
+         <%= f.text_area :body %>
+      </div>
+      <div class="actions">
+         <%= f.submit "добавить комментарий" %>
+      </div>
+      <% end %>
+   </p> 
+      
+      </table>
+  </tr>
+</table>
+<% else %>
+  <h1>Вы не авторизованы на сайте</h1>
+
+  <p>
+    
+  </p>
+  <%= link_to "Войти...", signin_path, :class => "signup_button round", :style => "background:#0acee0;" %><br />
+  <%= link_to "Регистрация...", signup_path, :class => "signup_button round" %>
+<% end %>

@@ -1,0 +1,47 @@
+<h1>Редактирование профиля</h1>
+
+<div>
+  <%= gravatar_for @user %><br />
+</div>
+
+<%= simple_form_for(@user) do |f| %>
+  
+   <div class="field" title="Впишите вашу метку 'Инжинер' или 'Пользователь'">
+   <%= f.input :point %>
+<!--<input id="user_options_true" name="user[options]" type="radio" value="true" />
+    <label class="collection_radio" for="user_options_true">Инжинер</label>
+    <input id="user_options_false" name="user[options]" type="radio" value="false" />
+    <label class="collection_radio" for="user_options_false">Пользователь</label> -->
+  </div>
+ 
+   <div class="field">
+    <%= f.input :nick %>
+  </div>
+ 
+  <div class="field">
+    <%= f.input :name %>
+  </div>
+  <div class="field">
+    <%= f.input :email %>
+  </div>
+  <div class="field">
+    <%= f.input :password %>
+  </div>
+  <div class="field">
+    <%= f.input :password_confirmation %>
+  </div>
+  <div class="field" title="Введите полный адрес">
+    <%= f.label :adress %>
+    <%= f.text_area :adress %>
+  </div>
+  <div class="field">
+    <%= f.input :proff %>
+  </div>
+  <div class="field" title="Опишите чем конкретно занимается ваша фирма">
+    <%= f.label :detail %>
+    <%= f.text_area :detail %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Обновить" %>
+  </div>
+<% end %>

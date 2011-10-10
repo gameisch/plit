@@ -1,0 +1,24 @@
+<div style="padding:0px 250px;"><h1>Вход</h1>
+
+<div id="ramka" style="max-width:350px;margin:5px;"><%= form_for(:session, :url => sessions_path) do |f| %>
+  <div class="field">
+    <%= f.label :email, "Email" %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "Пароль" %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+  <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+  <%= label_tag :remember_me, "запомнить меня!" %>
+  <hr />
+  <p><%= link_to "Забыли пароль??", new_password_reset_path %></p>
+  </div>  
+  <div class="actions">
+    <%= f.submit "Войти" %>
+  </div>
+<% end %>
+</div>
+<p>Новый пользователь??? <%= link_to "Зарегестрируйся!", signup_path %></p>
+</div>

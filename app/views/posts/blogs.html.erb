@@ -1,0 +1,39 @@
+
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h3 class="beuty">
+        <%= image_tag @user.photo.url(:small), @user %><br />
+        <%= @user.name %>
+      </h3><br>
+        <p><h8 id="mini">
+        <%= @user.skill %>
+        </h8></p><hr class="stripe" />
+     
+       <%= render 'follow_form' if signed_in? %>
+        
+        
+      
+      <% unless @user.posts.empty? %>
+        <table class="posts" summary="User posts">
+          <%= will_paginate @posts %>
+          <%= render @posts %>
+          <%= will_paginate @posts %>
+        </table>
+        
+      <% end %>
+   
+    
+    </td>
+    <td class="sidebar round">
+      <p><%= gravatar_for @user %><i class="border"> <%= @user.nick %></i></p>
+      <strong>Записи на стене:</strong>  <%= link_to @user.nick,  @user %><br />
+      <strong>Блоги:</strong> <%= @user.posts.count %><%= link_to posts_path(@post) %><br /><hr />
+      <dd class="border"><%= @user.point %></dd><br />
+      <strong>Профиль:</strong><dd class="border"><%= @user.proff %></dd><br />
+      <strong>Детали профиля:</strong><dd class="border"> <%= @user.detail %></dd><br />
+      <strong>Контактные данные:</strong><dd class="border"> <%= @user.adress %></dd><br />
+      <%= render 'shared/stats' %>
+    </td>
+  </tr>
+</table>

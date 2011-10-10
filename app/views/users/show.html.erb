@@ -1,0 +1,49 @@
+
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h3 class="beuty">
+        <%= image_tag @user.photo.url(:small) %><br />
+        <%= @user.name %><p style="color:#6f6f6f;padding:5px;font-size:0.7em;"><%= @user.point %><%= render 'follow_form' if signed_in? %></p></h3>
+        
+      
+        
+        <% unless @user.posts.empty? %>
+        <div id="post">
+        <p>
+        <table class="posts" summary="User posts">
+        <h4 style="padding-left:5px;"><b>Блоги:</b></h4><hr />
+          
+          <%= render @posts %>
+          <%= will_paginate @posts %>
+        </table>        
+      <% end %></p>
+      </div>
+      <hr class="stripe">
+       
+        <% unless @user.microposts.empty? %>
+        <b>Микросообщения:</b>
+        <table class="microposts" summary="User microposts" style="font-size:0.9em;">
+        <%= will_paginate @microposts %>
+          <%= render @microposts %>
+         
+        </table>
+        <%= will_paginate @microposts %>
+      <% end %>
+    
+    </td>
+    <td class="sidebar round" style="font-size:0.9em;">
+      <p><%= gravatar_for @user %><i class="border"><h2> <%= @user.nick %></h2></i></p>
+      <strong>Записей на стене:</strong>  <%= @user.microposts.count %><br />
+      <strong>Блоги:</strong> <%= @user.posts.count %><br />
+      <%= render 'shared/stats' %><hr />
+      
+      <strong>Профиль:</strong><dd class="border"><%= @user.proff %></dd><br />
+      <strong>Детали профиля:</strong><dd class="border"> <%= @user.detail %></dd><br />
+      <strong>Контактные данные:</strong><dd class="border"> <%= @user.adress %></dd><br />
+      <strong>Опыт:</strong><dd class="border"> <%= @user.skill %></dd><br />
+      
+      
+    </td>
+  </tr>
+</table>

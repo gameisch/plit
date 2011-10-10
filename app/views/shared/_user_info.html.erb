@@ -1,0 +1,14 @@
+<div class="user_info">
+  <a href="<%= user_path(current_user) %>">
+    <%= gravatar_for current_user, :size => 40 %>
+    <span class="user_name">
+      <%= current_user.name %>
+    </span>
+    <span class="microposts">
+     новостей: <%= current_user.microposts.count %>
+    </span>
+    <span class="microposts">
+     блогов: <%= current_user.posts.count %>
+    </span>
+  </a>
+</div>

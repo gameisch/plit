@@ -1,0 +1,14 @@
+<% if object.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@micropost.errors.count, "ошибка") %> 
+        не позволяет вам создать пост:</h2>
+    <ul>
+    <% @micropost.errors.full_messages.each do |msg| %>
+      <li><h4><%= msg %></h4></li>
+    <% end %>
+    </ul>
+  </div>
+ <h7>Не забывайте, что нужно что-то написать прежде чем нажать кнопку "Запостить!"<br />
+и объем вашего сообщения не должен превышать 2000 символов.</h7>
+<% end %>
+
